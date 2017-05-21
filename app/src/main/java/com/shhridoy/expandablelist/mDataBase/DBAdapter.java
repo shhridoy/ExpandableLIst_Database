@@ -24,9 +24,10 @@ public class DBAdapter {
     //OPEN CONNECTION TO DATABASE
     public void openDB(){
         try {
+
             db = helper.getWritableDatabase();
-        }
-        catch (SQLException e){
+
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }
@@ -34,9 +35,10 @@ public class DBAdapter {
     //CLOSE DATABASE
     public void closeDB(){
         try {
+
             helper.close();
-        }
-        catch (SQLException e){
+
+        } catch (SQLException e){
             e.printStackTrace();
         }
     }
@@ -45,6 +47,7 @@ public class DBAdapter {
     public boolean add(String name){
 
         try {
+
             ContentValues cv = new ContentValues();
             cv.put(Constants.NAME, name);
 
@@ -53,8 +56,8 @@ public class DBAdapter {
             if (result > 0){
                 return true;
             }
-        }
-        catch (SQLException e){
+
+        } catch (SQLException e){
             e.printStackTrace();
         }
 
@@ -83,6 +86,7 @@ public class DBAdapter {
     public boolean update(String newName, int id){
 
         try {
+
             ContentValues cv = new ContentValues();
             cv.put(Constants.NAME, newName);
 
@@ -90,8 +94,8 @@ public class DBAdapter {
             if (result > 0){
                 return true;
             }
-        }
-        catch (SQLException e){
+
+        } catch (SQLException e){
             e.printStackTrace();
         }
 
@@ -101,12 +105,13 @@ public class DBAdapter {
     //DELETE / REMOVE
     public boolean delete(int id){
         try {
+
             int result = db.delete(Constants.TB_NAME, Constants.ROW_ID+" =?", new String[]{String.valueOf(id)});
             if (result > 0){
                 return true;
             }
-        }
-        catch (SQLException e){
+
+        } catch (SQLException e){
             e.printStackTrace();
         }
         return false;
