@@ -24,9 +24,7 @@ public class DBAdapter {
     //OPEN CONNECTION TO DATABASE
     public void openDB(){
         try {
-
             db = helper.getWritableDatabase();
-
         } catch (SQLException e){
             e.printStackTrace();
         }
@@ -35,9 +33,7 @@ public class DBAdapter {
     //CLOSE DATABASE
     public void closeDB(){
         try {
-
             helper.close();
-
         } catch (SQLException e){
             e.printStackTrace();
         }
